@@ -1,0 +1,27 @@
+include header.pug
+
+div.container
+    h1 RestPaste
+    p Hi there!
+
+    form(action="/api/paste", method="post")
+        textarea.paste(name="paste", placeholder=`[
+  {
+    "path": "/test1",
+    "key": "hello1",
+    "value": "world1"
+  },
+  {
+    "path": "/test2",
+    "key": "hello2",
+    "value": "world2"
+  }
+]`) #{json}
+
+        if errors
+            div.errors
+                p #{errors}
+
+        div.button
+            button(type="submit") Paste
+

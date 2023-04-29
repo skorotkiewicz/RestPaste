@@ -1,0 +1,34 @@
+.paste {
+  /* width: 50vw; */
+  width: 100%;
+  height: 70vh;
+}
+
+.table th,
+tr td {
+  padding: 15px;
+  border-bottom: 1px solid #fff;
+}
+
+.access div {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.api {
+  border: 1px solid #fff;
+}
+
+.delete {
+  border: 1px solid #f00;
+}
+
+.errors p {
+  color: #f00;
+  padding: 5px;
+  border-bottom: 1px solid #f00;
+}
+
+.button {
+  margin-top: 10px;
+}

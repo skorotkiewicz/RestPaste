@@ -1,0 +1,37 @@
+include header.pug
+
+div.container
+
+    table.table
+        tr
+            th path
+            th key
+            th value
+        tbody
+            each d in json
+                tr
+                    td 
+                        a(href="/api/paste/" + apikey + "" + d.path target="_blank") #{d.path}
+                    td #{d.key}
+                    td #{d.value}
+
+    div.access
+        div.api
+            p Usage
+                hr
+                p API Key: 
+                    u #{apikey}
+
+                strong GET 
+                u http://#{host}/api/paste/
+                strong #{apikey}/YOUR_PATHS
+                p http://#{host}/api/paste/:apikey/:path
+
+        div.delete
+            p To delete this paste
+            hr
+            p
+                strong GET  
+                u http://#{host}/api/delete/#{password}
+
+

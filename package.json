@@ -1,0 +1,29 @@
+{
+  "name": "rest-paste",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "npx prisma generate; npx prisma migrate deploy; NODE_ENV=production node -r dotenv/config index.js dotenv_config_path=.env",
+    "dev": "node node_modules/nodemon/bin/nodemon.js -r dotenv/config index.js dotenv_config_path=.env.local",
+    "docker": "docker-compose up"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.18.2",
+    "nanoid": "^4.0.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "nodemon": "^2.0.9",
+    "prettier-plugin-prisma": "^4.4.0",
+    "prisma": "^4.6.1"
+  }
+}
