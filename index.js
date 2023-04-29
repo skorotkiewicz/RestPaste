@@ -64,9 +64,7 @@ app.get("/api/paste/:id", async (req, res) => {
       },
     });
 
-    if (!paste) {
-      return res.status(404).json({ message: "Paste not found" });
-    }
+    if (!paste) return res.status(404).json({ message: "Paste not found" });
 
     return res.render("paste", {
       apikey: paste.id,
@@ -74,6 +72,24 @@ app.get("/api/paste/:id", async (req, res) => {
       json: paste.data,
       host: req.headers.host,
     });
+  } catch (error) {
+    return res.status(400).json({ message: "Something gone wrong" });
+  }
+});
+
+app.get("/api/paste/json/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const paste = await prisma.paste.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!paste) return res.status(404).json({ message: "Paste not found" });
+
+    return res.status(200).json(paste.data);
   } catch (error) {
     return res.status(400).json({ message: "Something gone wrong" });
   }
@@ -88,9 +104,7 @@ app.get("/api/paste/:id/:key", async (req, res) => {
   }
 
   const result = paste.data.filter((item) => item.path === `/${key}`)[0];
-  if (!result) {
-    return res.status(404).json({ message: "Key not found" });
-  }
+  if (!result) return res.status(404).json({ message: "Key not found" });
 
   const response = { [result.key]: result.value };
   return res.status(200).json(response);
