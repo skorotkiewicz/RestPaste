@@ -9,6 +9,6 @@ generator client {
 
 model Paste {
     id       String @id @default(cuid())
-    data     Json[]
+    data     Json
     password String @unique
 }

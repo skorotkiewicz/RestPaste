@@ -1,4 +1,4 @@
-export const validateJSON = (json) => {
+export const validateJSON = (json, type = 0) => {
   const errors = [];
   let data;
 
@@ -11,15 +11,17 @@ export const validateJSON = (json) => {
   if (!Array.isArray(data)) {
     errors.push("JSON is not an array");
   } else {
-    for (let i = 0; i < data.length; i++) {
-      const element = data[i];
+    if (type === 0) {
+      for (let i = 0; i < data.length; i++) {
+        const element = data[i];
 
-      if (
-        !element.hasOwnProperty("path") ||
-        !element.hasOwnProperty("key") ||
-        !element.hasOwnProperty("value")
-      ) {
-        errors.push(`Element ${i + 1} is missing a required field`);
+        if (
+          !element.hasOwnProperty("path") ||
+          !element.hasOwnProperty("key") ||
+          !element.hasOwnProperty("value")
+        ) {
+          errors.push(`Element ${i + 1} is missing a required field`);
+        }
       }
     }
   }
