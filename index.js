@@ -16,6 +16,12 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((_req, res, next) => {
+  res.header("X-Powered-By", "RestPaste");
+  // res.append("X-Powered-By", ["RestPaste"]);
+  next();
+});
+
 app.use(
   cors({
     // origin: 'http://example.com',
@@ -26,6 +32,10 @@ app.use(
 
 app.get("/", async (req, res) => {
   res.render("homepage");
+});
+
+app.get("/fpaste", async (req, res) => {
+  res.render("fhomepage");
 });
 
 app.use("/api", router);

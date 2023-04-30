@@ -29,7 +29,7 @@ export const createPaste = async (req, res) => {
   }
 };
 
-export const getDocPaste = async (req, res) => {
+export const getDocPaste = async (req, res, type = 0) => {
   const id = req.params.id;
 
   try {
@@ -41,7 +41,7 @@ export const getDocPaste = async (req, res) => {
 
     if (!paste) return res.status(404).json({ message: "Paste not found" });
 
-    return res.render("paste", {
+    return res.render(type === 0 ? "paste" : "fpaste", {
       apikey: paste.id,
       password: paste.password,
       json: paste.data,

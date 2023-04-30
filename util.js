@@ -8,10 +8,10 @@ export const validateJSON = (json, type = 0) => {
     errors.push("JSON syntax error");
   }
 
-  if (!Array.isArray(data)) {
-    errors.push("JSON is not an array");
-  } else {
-    if (type === 0) {
+  if (type === 0) {
+    if (!Array.isArray(data)) {
+      errors.push("JSON is not an array");
+    } else {
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
 

@@ -3,6 +3,7 @@ include header.pug
 div.container
     h1 RestPaste
     p Hi there!
+      a(href="/fpaste" class="links") Any JSON
 
     form(action="/api/paste", method="post")
         textarea.paste(name="paste", placeholder=`[

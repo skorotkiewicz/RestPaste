@@ -2,19 +2,6 @@ include header.pug
 
 div.container
 
-    table.table
-        tr
-            th path
-            th key
-            th value
-        tbody
-            each d in json
-                tr
-                    td 
-                        a(href="/api/paste/" + apikey + "" + d.path target="_blank") #{d.path}
-                    td #{d.key}
-                    td #{d.value}
-
     div.access
         div.api
             p Usage
@@ -26,14 +13,14 @@ div.container
                     span GET 
                         span.get http://#{host}
                         span.color /api/
-                        span.info paste/
-                        span.color :apikey/:path
+                        span.info fpaste/json/
+                        span.color :apikey?fields=petName,petType
 
                 p
                     span Get full paste: 
                         span.get http://#{host}
                         span.color /api/
-                        span.info paste/json/
+                        span.info fpaste/json/
                         span.color :apikey
 
         div.delete

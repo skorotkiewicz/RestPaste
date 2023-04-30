@@ -1,0 +1,18 @@
+include header.pug
+
+div.container
+    h1 RestPaste
+    p Hi there, here you can paste any valid JSON!
+        a(href="/" class="links") Paste
+
+    form(action="/api/fpaste", method="post")
+        textarea.paste(name="paste", placeholder=``) #{json}
+
+        if errors
+            div.errors
+                p #{errors}
+
+        div.button
+            button(type="submit") Paste
+
+include footer.pug

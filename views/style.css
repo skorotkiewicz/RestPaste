@@ -44,6 +44,15 @@ tr td {
   color: #bbb;
 }
 
+.info {
+  color: pink;
+}
+
+p > .links {
+  display: inline;
+  float: right;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
