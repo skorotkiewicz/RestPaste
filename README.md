@@ -4,6 +4,8 @@ This JSON pastebin allows to store and retrieve JSON data through a simple RESTf
 
 The API also supports partial retrieval of data using the fields query parameter. Specify a comma-separated list of fields they want to retrieve, and the API will return only those fields from the JSON data.
 
+This pastebin is designed to be simple and easy to use, with a minimal API and no authentication required. However, users should be aware that pastes are publicly accessible and should not include any sensitive or confidential information.
+
 To try it out locally, download the repository and install the dependencies.
 
 Remember to rename the `dotenv` file to `.env` and fill it in with your own data.
