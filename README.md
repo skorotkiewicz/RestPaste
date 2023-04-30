@@ -45,3 +45,39 @@ Returns:
 ```json
 { "hello3": "world3" }
 ```
+
+## Example Paste for any JSON
+
+```
+{
+  "pet1": {
+    "petName": "Claudine",
+    "petType": "House cat"
+  },
+  "pet2": {
+    "petName": "Sunny",
+    "petType": "Gerbil"
+  }
+}
+```
+
+Request:
+
+```text
+http://localhost:5000/api/fpaste/json/clh30axuj00003xjvimyk6m8z?fields=petName,petType
+```
+
+Returns:
+
+```json
+{
+  "pet1": {
+    "petName": "Claudine",
+    "petType": "House cat"
+  },
+  "pet2": {
+    "petName": "Sunny",
+    "petType": "Gerbil"
+  }
+}
+```
