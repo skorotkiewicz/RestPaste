@@ -1,6 +1,8 @@
 # RestPaste
 
-This is a simple project written in React with a Node backend.
+This JSON pastebin allows to store and retrieve JSON data through a simple RESTful API. Create new pastes by sending a POST request with the JSON data.
+
+The API also supports partial retrieval of data using the fields query parameter. Specify a comma-separated list of fields they want to retrieve, and the API will return only those fields from the JSON data.
 
 To try it out locally, download the repository and install the dependencies.
 

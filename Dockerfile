@@ -7,7 +7,7 @@ COPY . .
 
 WORKDIR /app/client
 RUN npm install --production
-RUN npm run-script build
+# RUN npm run-script build
 
 WORKDIR /app
 COPY . .
